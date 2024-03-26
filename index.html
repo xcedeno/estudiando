@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>prueba</title>
         <div id="app">
-            Hola {{nombre}} estamos en el año {{anio}} y el mes {{meses[1]}}
+            Contador: {{contador}}
+            <button type="button" v-on:click="stopInterval">{{btnMessage}}</button>
+            {{btnMessage}}
         </div>
 </head>
 <body>
@@ -15,14 +17,38 @@
 const holaMundo = {
         data() {
             return{
-                nombre: 'jairo',
-                anio: 2024,
-                meses: ['Enero', 'Febrero']
+            contador: 0,
+            interval: null,
+            isRunning:false,
+            btnMessage: 'Detener'
             }
-        }
-}
-         var mountedApp= Vue.createApp(holaMundo).mount('#app')
-         
+        },
+        mounted()
+        {
+            this.interval = setInterval(() =>{
+                this.contador ++; 
+            },1000);
+            this.isRunning = true;
+        },
+        methods: {
+            stopInterval()
+            {
+                if(this.isRunning) {
+                clearInterval(this.interval);
+                this.isRunning = false;
+                this.btnMessage = 'Continuar'
+            }
+            else
+            {
+                this.interval = setInterval(() =>{
+                this.contador ++; 
+            },1000);
+                this.isRunning = true;
+                this.btnMessage = 'Detener'
+            }
+        },
+} }
+    var mountedApp= Vue.createApp(holaMundo).mount('#app') 
     </script>
 </body>
 </html>
