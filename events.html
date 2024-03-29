@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>          
+        
+</head>
+<body>
+    <div id="app">
+        <button class="btn indigo darken-4" @click="(contador++)">Haz Click</button>
+        {{contador}}
+        <hr>
+        <button class="btn indigo darken-4" 
+            @mouseout="(estado = false)" 
+            @mouseover="(estado = true)"
+        >
+            Coloca el puntero sobre mi</button>
+        Estado mouse: {{estado}}
+        
+
+        <select v-on:change="cambiarImagen($event)" class="browser-default">
+            <option value="rodolfo.jpg">RODOLFO</option>
+            <option value="votacion.jpg">VOTACION</option>
+
+        </select>
+        <img :src="imagen" v-show="estado">
+        
+        
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods,props,mounted,created,computed,watch, destroyed
+        //keydown, load, mouseout, mouseover
+const app = {
+        data() {
+            return{
+                contador: 0,
+                estado: false,
+                imagen:''
+            }
+        },
+            methods: {
+                cambiarImagen(event)
+                {
+                    this.imagen= event.target.value;
+
+                }
+            }
+        
+    }
+    var mountedApp= Vue.createApp(app).mount('#app') 
+    </script>
+</body>
+</html>
