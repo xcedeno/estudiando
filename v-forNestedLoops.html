@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+        <div id="app">
+            <ul>
+                <li v-for="fruta in frutas">{{fruta}}</li>
+            </ul>
+            <hr>
+            <ul>
+                <li v-for="(fruta , index) in frutas_con_id" v-bind:key="fruta">
+                    Indice:{{index}} {{fruta.id}} - {{fruta.nombre}}
+                    <ul>
+                        <li v-for="pais in fruta.paises_origen">Pais: {{pais.id}} - {{pais.pais}}
+
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <select>
+                <option v-for="fruta in frutas_con_id" v-bind:value="fruta.id">{{fruta.nombre}}
+
+                </option>
+            </select>
+            <ul>
+                <li v-for="numero in 100">
+                    {{numero /2}}
+
+                </li>
+            </ul>
+
+        </div>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods,props,mounted,created,computed,watch, destroyed
+        //v-model=""
+const app = {
+        data() {
+            return{
+                frutas: ['Manzanas', 'Peera','Uva'],
+                frutas_con_id: [
+                    {
+                        id: 1,
+                        nombre: 'manzana',
+                        paises_origen:[
+                            {
+                                id_pais: 1,
+                                pais: 'El Salvador'
+                            },
+                            {
+                                id_pais: 2,
+                                pais: 'Venezuela'
+                            }
+
+
+                        ]
+                    },
+                    {
+                        id: 2,
+                        nombre: 'pera',
+                        paises_origen:[
+                        {
+                                id_pais: 3,
+                                pais: 'Mexico'
+                            },
+                            {
+                                id_pais: 4,
+                                pais: 'Colombia'
+                            },
+                        ]
+
+                    },
+                    {
+                        id: 3,
+                        nombre: 'catuche',
+                        paises_origen:null
+                    },
+                    {
+                        id: 4,
+                        nombre: 'mango',
+                        paises_origen:null
+
+                    },
+                    {
+                        id: 5,
+                        nombre: 'melocoton',
+                        paises_origen:null
+                    },
+                ]
+
+            }
+        },
+        
+    }
+    var mountedApp= Vue.createApp(app).mount('#app') 
+    </script>
+</body>
+</html>
