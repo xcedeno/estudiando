@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+        <div id="app">
+            <label >Escribe tu Nombre</label>
+            <input type="text" v-model="nombre">
+            <hr>
+            <h5>Hola {{nombre}}</h5>
+            <h5>Hola {{nombre}}</h5>
+            <h5>Hola {{nombre}}</h5>
+            <h5>Hola {{nombre}}</h5>
+            <hr>
+            |<select v-model="fruta">
+                <option value="Manzana">Manzana</option>
+                <option value="Pera">Pera</option>
+                <option value="Uva">Uva</option>
+                <option value="Guanavana">Guanavana</option>
+            </select>
+            Fruta Seleccionada {{fruta}}
+            <input type="checkbox" v-model="activo">
+            {{activo}}
+                
+
+            
+
+        </div>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods,props,mounted,created,computed,watch, destroyed
+        //v-model=""
+const app = {
+        data() {
+            return{
+                nombre:'',
+                fruta:'',
+                activo:false
+
+            }
+        },
+        
+    }
+    var mountedApp= Vue.createApp(app).mount('#app') 
+    </script>
+</body>
+</html>
