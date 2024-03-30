@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enlacede estilo</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>          
+
+    
+
+</head>
+<body>
+    <div id="app">
+        <div v-bind:style="[myStyle, myStyle2]">
+            HOLA MUNDO
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <script>
+        //data, methods,props,mounted,created,computed,watch, destroyed
+        //v-if, v-else, v-else-if, v-show
+const app = {
+        data() {
+            return{
+            myStyle:{'font-size':'10px',height:'50px',width: '50px', backgroundColor:'green'},
+            myStyle2:{'border':'dashed 1px black'},
+            color:'red'
+
+            }
+        
+        },
+    
+    
+    }
+    var mountedApp= Vue.createApp(app).mount('#app') 
+    </script>
+</body>
+</html>
