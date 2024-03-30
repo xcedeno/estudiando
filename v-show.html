@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-show</title>
+        <div id="app">
+            <a href="#!" v-if="esAdministracion">Administracion</a>
+            <img src="rodolfo.jpg" height="200px" v-if="mostrarImagen">
+            <img src="votacion.jpg" height="200px" v-show="mostrarImagen">
+        </div>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods,props,mounted,created,computed,watch, destroyed
+        //v-if, v-else, v-else-if, v-show
+const app = {
+        data() {
+            return{
+                mostrarImagen: true,
+                esAdministracion: true
+            }
+        
+        },
+        methods: {
+    
+        },
+        mounted() {
+            
+    
+        }
+    
+    }
+    var mountedApp= Vue.createApp(app).mount('#app') 
+    </script>
+</body>
+</html>
