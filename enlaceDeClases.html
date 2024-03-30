@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bindClass</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>          
+
+        <style>
+            .rounded
+            {
+                border-radius: 50px;
+            }
+            .square
+            {
+                height: 50px;
+                width: 50px;
+            }
+        
+        </style>
+
+</head>
+<body>
+    <div id="app">
+        <div class="container" style="padding-top:50px;">
+            <div  v-bind:class="[enableRoundedClass ? roundedClass:'', squareClass]">
+                <button @click="(rounded = !rounded)">Cambiar</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <script>
+        //data, methods,props,mounted,created,computed,watch, destroyed
+        //v-if, v-else, v-else-if, v-show
+const app = {
+        data() {
+            return{
+                
+                roundedClass: 'rounded red btn',
+                //rounded: false,
+                squareClass: 'square',
+                enableRoundedClass: false
+            }
+        
+        },
+    
+    
+    }
+    var mountedApp= Vue.createApp(app).mount('#app') 
+    </script>
+</body>
+</html>
