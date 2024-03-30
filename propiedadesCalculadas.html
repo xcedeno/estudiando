@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enlacede estilo</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>          
+
+    
+
+</head>
+<body>
+    <div id="app">
+        <div class="container" style="padding-top: 50px;">
+            <input type="text" v-model="n1">
+            <input type="text" v-model="n2">
+            <h5>la suma es {{resultado}}</h5>
+        <hr>
+        <div class="row">
+        <label>Escriba una Fruta</label>
+        <input type="text" v-model="fruta">
+        <button type="button" @click="agregarFruta">Agregar fruta</button>
+        <label>Ha agregado un total de {{total_frutas}} frutas</label>
+        <label>Ha agregado un total de {{totalfrutas}} frutas</label>
+        <br>
+        <ul>
+            <li v-for="fruta in frutas">{{fruta}}</li>
+        </ul>
+        </div>
+    </div>
+</div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <script>
+        //data, methods,props,mounted,created,computed,watch, destroyed
+        //v-if, v-else, v-else-if, v-show
+const app = {
+        data() {
+            return{
+                n1: 0,
+                n2:0,
+                fruta:'',
+                frutas:[],
+                totalfrutas:0
+                
+            }
+        
+        },
+        methods: {
+            agregarFruta()
+                {
+                    this.frutas.push(this.fruta);
+                    this.fruta= '';
+                    this.calcularFrutas();
+                },
+                calcularFrutas()
+                {
+                    this.totalfrutas = this.frutas.length;
+                }
+            
+        },
+        computed:{
+                resultado: function()
+                {
+                return parseFloat(this.n1) + parseFloat(this.n2);
+            },
+            total_frutas: function()
+            {
+                return this.frutas.length;
+            }
+        }
+    }
+    var mountedApp= Vue.createApp(app).mount('#app') 
+    </script>
+</body>
+</html>
