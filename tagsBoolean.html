@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tagsBoolean</title>
+        <div id="app">
+            <form method="POST">
+                <input type="text" :required="obligatorio">
+                <button type="submit">Enviar</button>
+            </form>
+            <input type="text" :disabled="(usuarios == 5)">
+            <input type="checkbox" :checked="chkChecked">
+            <select v-model="idFruta" class="browser-default">
+                <option v-for="fruta in frutas" v-bind:value="fruta.id" :selected="fruta.selected">{{fruta.id}} - {{fruta.nombre}}</option>
+            </select>
+            
+        </div>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //data, methods,props,mounted,created,computed,watch, destroyed
+        //v-if, v-else, v-else-if, v-show
+const app = {
+        data() {
+            return{
+                txtDisabled: false,
+                usuarios: 5,
+                chkChecked: true,
+                obligatorio: true,
+                frutas: [
+                    {
+                        id: 1,
+                        nombre: "manzana",
+                        selected: false
+
+                    },
+                    {
+                        id: 2,
+                        nombre:"pera",
+                        selected: true
+                        
+                    },
+                    {
+                        id: 3,
+                        nombre:"sandia",
+                        selected: false
+                    }
+                ],
+                idFruta: 2
+
+            }
+        
+        },
+        methods: {
+    
+        },
+        mounted() {
+            
+    
+        }
+    
+    }
+    var mountedApp= Vue.createApp(app).mount('#app') 
+    </script>
+</body>
+</html>
