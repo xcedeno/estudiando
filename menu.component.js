@@ -9,13 +9,20 @@ _app.component('menu-component' , {
                 </ul>
             </div>
             </nav>
-            <input type="text" v-model="miUsuario">` ,
+            <input type="text" v-model="miUsuario">
+            <hr>
+            <button type="button" @click="saludarDesdeHijo">Haz click</button>` ,
             props:{
                 usuario: String
             },
             data() {
                 return {
                     miUsuario:this.usuario
+                }
+            },
+            methods: {
+                saludarDesdeHijo() {
+                    console.log('hola mundo desde componente hijo')
                 }
             }
 });
